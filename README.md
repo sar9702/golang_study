@@ -16,6 +16,37 @@ Golang 공부 모음.zip
 
 <br>
 
+## 폴더 구조
+
+```
+server/
+├── cmd/                    # 실행 파일 (main.go 등)
+│   └── app/
+│       └── main.go         # 애플리케이션 진입점
+├── ent/                    # Ent 라이브러리에서 사용하는 폴더(스키마를 제외하곤 모두 자동 생성)
+│   ├── schema/             # 스키마 정의
+│   │   └── item.go         # 서비스 스키마 정의
+├── internal/               # 내부 로직 (외부에 노출하지 않는 코드)
+│   ├── api/                # API 핸들러 (HTTP 핸들러)
+│   │   ├── router.go       # 라우터 설정 (e.g., Gorilla Mux, Echo 등)
+│   │   └── item.go         # 서비스 관련 API 핸들러
+│   ├── db/                 # 데이터베이스 로직
+│   │   └── item.go         # 서비스 관련 DB 함수
+│   ├── models/             # 데이터베이스 모델
+│   │   └── item.go         # 서비스 관련 struct 정의
+│   ├── service/            # 비즈니스 로직 (핸들러와 DB 로직 사이)
+│   ├── config/             # 설정 파일 및 환경 변수 관리
+│   │   ├── config.go       # 플래그 설정 관련 함수
+│   │   └── database.go     # DB 연결 설정
+│   └── utils/              # 공통 유틸리티 함수
+│   │   ├── network.go      # 네트워크 관련 함수
+│   │   └── path.go         # 경로 관련 함수
+├── go.mod                  # Go 모듈 파일
+└── README.md               # 프로젝트 설명
+```
+
+<br>
+
 ## Conventions
 
 ### 파일 네이밍
